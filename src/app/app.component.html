@@ -1,45 +1,26 @@
 <div class="toolbar" role="banner" xmlns="http://www.w3.org/1999/html">
-   <h1>{{ title }}!</h1>
+  <h1>{{ title }}!</h1>
   <span>Please enter Username (Partial or Full) to search StackOverflow</span><br><br>
   <span>Username: </span><input type="text" id="userName" name="userName" [(ngModel)]="userName">&nbsp;&nbsp;
-  <!--{{userName}} //One way binding
-  ngModel // two way binding-->
   <button type="button" (click)="onSearch();">Search</button>
   <br><br>
-  <!--<div *ngIf="userSearchResponseItems">
-    <table class="table table-striped" border="1">
-      <tr>
-        <th>Account Id</th>
-        <th>User Id</th>
-        <th>User/Display Name</th>
-        &lt;!&ndash;<th>Link</th>&ndash;&gt;
-        <th></th>
-      </tr>
-      <tr *ngFor="let item of userSearchResponseItems" (click)="moreDetails()">
-        <td>{{item.account_id}}</td>
-        <td>{{item.user_id}}</td>
-        <td>{{item.display_name}}</td>
-        &lt;!&ndash;<td><a href={{item.link}}>{{item.link}}</a></td>&ndash;&gt;
-        <td><a href="">More details</a> </td>
-      </tr>
-    </table>
-  </div>-->
-  <div *ngIf="userSearchResponseItems">
+  <div *ngIf="userSearchResponseItems.length > 0;else other_content"  >
     <ag-grid-angular style="width: 600px; height: 400px;"
                      class="ag-theme-alpine"
                      rowSelection='single'
-                     [rowData]="rowData"
+                     [rowData]="userSearchResponseItems"
                      [columnDefs]="columnDefs"
                      (rowClicked)='open(content, $event)'></ag-grid-angular>
   </div>
+  <ng-template #other_content >
+    <span [hidden]="isOnLoad" style="color: brown">No search results for given criteria. Please try again!</span>
+  </ng-template>
   <ng-template #content let-modal>
     <div class="modal-content" style="width: 800px;">
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Stackoverflow Account Details</h4>
       </div>
       <div class="modal-body">
-        <!--<div *ngFor="let item of selectedRow | keyvalue">-->
-        <!--<b>{{item.key}}</b> : {{item.value}}-->
         <table class="table table-striped" border="1">
           <tr *ngFor="let item of selectedRow | keyvalue">
             <td><b>{{item.key}}</b></td>
