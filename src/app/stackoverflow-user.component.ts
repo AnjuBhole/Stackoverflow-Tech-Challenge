@@ -5,11 +5,11 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './stackoverflow-user.component.html',
+  styleUrls: ['./stackoverflow-user.component.css']
 })
 
-export class AppComponent {
+export class StackoverflowUserComponent {
   title = 'Fidelity Tech Challenge';
   userName: string = '';
   userSearchResponse: any;

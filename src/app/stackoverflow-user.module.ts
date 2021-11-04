@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { StackoverflowUserComponent } from './stackoverflow-user.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AgGridModule} from "ag-grid-angular";
@@ -9,7 +9,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
-    AppComponent
+    StackoverflowUserComponent
   ],
     imports: [
         BrowserModule,
@@ -19,6 +19,6 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
         NgbModule,
     ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [StackoverflowUserComponent],
 })
 export class AppModule { }
