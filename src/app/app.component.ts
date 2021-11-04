@@ -12,17 +12,17 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   title = 'Fidelity Tech Challenge';
   userName: string = '';
-  public userSearchResponse: any;
-  public dataService: DataService;
-  public userSearchResponseItems: any;
-  public selectedRow: any;
+  userSearchResponse: any;
+  dataService: DataService;
+  userSearchResponseItems: any;
+  selectedRow: any;
   /*Search results grid*/
   columnDefs = [
     {headerName: 'Account Id', field: 'account_id'},
     {headerName: 'User Id', field: 'user_id'},
     {headerName: 'Display Name', field: 'display_name'},
   ];
-  public rowData = [];
+  rowData = [];
 
   constructor(public httpClient: HttpClient, private modalService: NgbModal){
     this.dataService = new DataService(httpClient);
